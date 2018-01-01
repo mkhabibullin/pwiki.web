@@ -15,6 +15,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="2.0.0-preview1-final" />
+    <PackageReference Include="NLog.Extensions.Logging" Version="1.0.0-rtm-rc5" />
   </ItemGroup>
 
   <ItemGroup>
@@ -33,12 +34,18 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Solution.sln" />
+    <None Include="pwiki.web.sln" />
   </ItemGroup>
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\app.server.module.ts" />
     <TypeScriptCompile Include="ClientApp\src\main.server.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="nlog.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
