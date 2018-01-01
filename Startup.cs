@@ -25,11 +25,23 @@ namespace pwiki.web
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+
+            #region CORS
+
+            services.AddCors();
+
+            #endregion
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            #region CORS
+
+            app.UseCors(builder => builder.WithOrigins("*"));
+
+            #endregion
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
