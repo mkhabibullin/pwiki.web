@@ -1,0 +1,8 @@
+.note-card {
+  width: 400px;
+}
+.notes-toolbar {
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+}
