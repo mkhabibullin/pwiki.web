@@ -1,22 +1,20 @@
-<mat-toolbar class="notes-toolbar">
+<mat-toolbar class="notes-toolbar primary">
   <mat-toolbar-row>
-    <span>Custom Toolbar</span>
+    <input matInput autofocus placeholder="Search" (input)="onSearch($event.target.value)">
   </mat-toolbar-row>
 </mat-toolbar>
-<br/>
+<br/><br/><br/>
 <p *ngIf="!notes"><em>Loading...</em></p>
-<mat-grid-list cols="2" rowHeight="200px" *ngIf="notes">
-  <mat-grid-tile *ngFor="let n of notes">
+<div *ngFor="let n of notes">
     <mat-card class="note-card">
       <mat-card-header>
         {{ n.title }}
       </mat-card-header>
-      <mat-card-content>
-        <td>{{ n.text }}
-      </mat-card-content>
+      <mat-card-subtitle>
+        <td>{{ n.text | slice:0:100}}
+      </mat-card-subtitle>
       <mat-chip-list *ngIf="n.tags">
-        <mat-chip *ngFor="let t of n.tags">{{t}}</mat-chip>
+        <mat-chip class="tags-chip" *ngFor="let t of n.tags">{{t}}</mat-chip>
       </mat-chip-list>
     </mat-card>
-  </mat-grid-tile>
-</mat-grid-list>
+</div>

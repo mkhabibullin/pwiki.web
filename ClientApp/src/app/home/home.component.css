@@ -1,8 +1,15 @@
 .note-card {
-  width: 400px;
+  width: 450px;
+  height: 150px;
+  display: inline-block;
+  float: left;
+  margin: 10px;
 }
 .notes-toolbar {
   position: fixed;
   top: 0;
   z-index: 1000;
+}
+.tags-chip {
+  font-size: 12px;
 }
