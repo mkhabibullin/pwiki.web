@@ -13,3 +13,11 @@
 .tags-chip {
   font-size: 12px;
 }
+.note-card-header {
+  display: inline-block;
+  width: 100%;
+}
+.note-card-header-delete-btn {
+  float: right;
+  margin-top: -10px;
+}
