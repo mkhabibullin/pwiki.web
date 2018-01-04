@@ -1,6 +1,7 @@
 <mat-toolbar class="notes-toolbar primary">
   <mat-toolbar-row>
     <input matInput autofocus placeholder="Search" (input)="onSearch($event.target.value)">
+    <button mat-button class="note-card-header-delete-btn" (click)="openDialog()">Add</button>
   </mat-toolbar-row>
 </mat-toolbar>
 <br/><br/><br/>

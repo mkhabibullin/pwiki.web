@@ -1,0 +1,30 @@
+<h1 mat-dialog-title>Add note</h1>
+<form>
+  <div mat-dialog-content>
+    <mat-form-field>
+      <input matInput tabindex="1" placeholder="Title" [(ngModel)]="title" name="title">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput tabindex="2" placeholder="Content" [(ngModel)]="text" name="content">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput tabindex="3" placeholder="Tags" aria-label="State" [matAutocomplete]="auto"
+             [formControl]="stateCtrl" (focus)="onTagInputFocused()" (keydown)="onInputKeyDown($event)">
+      <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onTagSelected($event)">
+        <mat-option *ngFor="let t of filterdTags | async" [value]="t.name">
+          <!--<img style="vertical-align:middle;" aria-hidden src="{{state.flag}}" height="25" />-->
+          <span>{{ t.name }}</span>
+          <!--<small>involve's count: {{t.notesCount}}</small>-->
+        </mat-option>
+      </mat-autocomplete>
+      <mat-chip-list>
+        <mat-chip *ngFor="let t of selectedTags">{{t}}</mat-chip>
+      </mat-chip-list>
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Close</button>
+    <!--<button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Create</button>-->
+    <button mat-button tabindex="4" (click)="onCreate()">Create</button>
+  </div>
+</form>

@@ -6,6 +6,7 @@ import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 
 export function getBaseUrl() {
+  // return 'http://localhost:52384/api/v1/';
   return 'http://api.i2x2.net/api/v1/';
   //return document.getElementsByTagName('base')[0].href;
 }
